@@ -4,7 +4,7 @@ let studentData = data;
 function loadData(studentData) {
   if (document.getElementById("table-2-div").style.display == "block") {
     document.getElementById("table-2-div").style.display = "none";
-    studentData = data;
+    // studentData = data;
   }
   const table = document.getElementsByTagName("table")[0];
 
@@ -56,8 +56,13 @@ function loadData(studentData) {
 // search
 
 const searchBtn = document.getElementById("searchbtn");
-searchBtn.addEventListener("click", () => {
+searchBtn.addEventListener("click", (e) => {
   let searchValue = document.getElementById("search").value;
+
+  if (searchValue == "") {
+    alert("please enter data to search");
+    return;
+  }
   //   console.log(searchValue);
   studentData = data.filter((student) => {
     let fullName = (
@@ -77,11 +82,9 @@ searchBtn.addEventListener("click", () => {
 
     return;
   }
-  if (document.getElementById("table-2-div").style.display == "block") {
-    loadGenderBase();
-  } else {
-    loadData(studentData);
-  }
+
+  loadData(studentData);
+  studentData = data;
 });
 
 // sort A to Z
@@ -95,11 +98,8 @@ sortAZBtn.addEventListener("click", () => {
 
     return fullNameA > fullNameB ? 1 : -1;
   });
-  if (document.getElementById("table-2-div").style.display == "block") {
-    loadGenderBase();
-  } else {
-    loadData(studentData);
-  }
+
+  loadData(studentData);
 });
 
 const sortZABtn = document.getElementById("sortZA");
@@ -112,11 +112,7 @@ sortZABtn.addEventListener("click", () => {
     return fullNameA > fullNameB ? -1 : 1;
   });
 
-  if (document.getElementById("table-2-div").style.display == "block") {
-    loadGenderBase();
-  } else {
-    loadData(studentData);
-  }
+  loadData(studentData);
 });
 
 // sort by marks
@@ -127,39 +123,31 @@ sortMarksBtn.addEventListener("click", () => {
   studentData.sort((a, b) => {
     return a.marks > b.marks ? 1 : -1;
   });
-  if (document.getElementById("table-2-div").style.display == "block") {
-    loadGenderBase();
-  } else {
-    loadData(studentData);
-  }
+
+  loadData(studentData);
 });
 
 const passBtn = document.getElementById("passbtn");
 
 passBtn.addEventListener("click", () => {
   studentData = studentData.filter((student) => student.passing);
-  if (document.getElementById("table-2-div").style.display == "block") {
-    loadGenderBase();
-  } else {
-    loadData(studentData);
-  }
+  loadData(studentData);
+  studentData = data;
 });
 
 const classBtn = document.getElementById("classbtn");
 
 classBtn.addEventListener("click", () => {
   studentData.sort((a, b) => (a.class > b.class ? 1 : -1));
-  if (document.getElementById("table-2-div").style.display == "block") {
-    loadGenderBase();
-  } else {
-    loadData(studentData);
-  }
+
+  loadData(studentData);
 });
 
 const genderSortBtn = document.getElementById("gendersortbtn");
 
 genderSortBtn.addEventListener("click", () => {
   loadGenderBase();
+  studentData = data;
 });
 
 //gender based
