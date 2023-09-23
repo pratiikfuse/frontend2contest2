@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- header -->
+    <div class="header">
+      <p>Student Portal</p>
+    </div>
+    <!-- search bar-->
+    <div class="search">
+      <input type="text" name="" id="search" placeholder="search" required />
+      <button id="searchbtn">Search</button>
+    </div>
+    <div class="functionalities">
+      <button id="sortAZ" class="functional">Sort A->Z</button>
+      <button id="sortZA" class="functional">Sort Z->A</button>
+      <button id="markssort" class="functional">Sort By Marks</button>
+      <button id="passbtn" class="functional">Sort By Passing</button>
+      <button id="classbtn" class="functional">Sort By Class</button>
+      <button id="gendersortbtn" class="functional">Sort By Gender</button>
+    </div>
+    <div id="not-found">
+      <h2>Data Entered is not available reload page to get all data</h2>
+    </div>
+    <!-- table -->
+    <div class="table-container">
+      <table>
+        <tr>
+          <td>Id</td>
+          <td>Name</td>
+          <td>Gender</td>
+          <td>Class</td>
+          <td>Marks</td>
+          <td>Passing</td>
+          <td>Email</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="table-container" id="table-2-div">
+      <table>
+        <tr>
+          <td>Id</td>
+          <td>Name</td>
+          <td>Gender</td>
+          <td>Class</td>
+          <td>Marks</td>
+          <td>Passing</td>
+          <td>Email</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- script -->
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>
